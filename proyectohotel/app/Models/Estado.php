@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Estado extends Model
 {
     protected $fillable = ['nombre_estado','descripcion'];
-    public function empleados(){
+    public function empleado(){
         return $this->hasMany(Empleado::class);
     }
-    public function restaurantes(){
+    public function restaurante(){
         return $this->belongsTo(Restaurante::class);
     }
-    public function salones(){
+    public function salon(){
         return $this->belongsTo(Hotel::class);
     }
 }
