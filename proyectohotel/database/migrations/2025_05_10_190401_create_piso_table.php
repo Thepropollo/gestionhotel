@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('piso', function (Blueprint $table) {
             $table->id();
-            $table->forreignId('hotel_id')->constrained('hotels')->onDelete('cascade');
-            $table->int('numeropiso');
+            $table->foreignId('hotel_id')->constrained('hotels')->onDelete('cascade');
+            $table->integer('numeropiso');
             $table->string('numerotoalhabitaciones');
             $table->string('pisorestante');
             $table->string('pisosalon');
-            $table->int('numerototalhabitaciones');
+            $table->integer('numerototalhabitaciones');
             $table->timestamps();
         });
     }
