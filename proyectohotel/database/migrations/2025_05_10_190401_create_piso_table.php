@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('piso', function (Blueprint $table) {
             $table->id();
+            $table->forreignId('hotel_id')->constrained('hotels')->onDelete('cascade');
+            $table->string('numeropiso');
+            $table->string('numerotoalhabitaciones');
+            $table->string('pisorestante');
+            
             $table->timestamps();
         });
     }
