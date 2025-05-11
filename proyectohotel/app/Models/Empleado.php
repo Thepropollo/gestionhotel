@@ -6,14 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class Empleado extends Model
 {
-    protected $fillable = ['cedula','nombre','apellido','tiposangre', 'fechanacimiento','hotel_id','rol_id', 'estado_id'];
-    public function hotel(){
+    protected $fillable = [
+        'hotel_id', 'rols_id', 'estado_id', 'nombre', 'apellido', 'cedula', 'fechanacimiento', 'tiposangre'
+    ];
+
+    // Relación con el Hotel
+    public function hotel()
+    {
         return $this->belongsTo(Hotel::class);
     }
-    public function restaurante(){
-        return $this->belongsTo(Restaurante::class);
+
+    // Relación con el Rol
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class, 'rols_id');
     }
-    public function usuario(){
-        return $this->belongsTo(Usuario::class);
+
+    // Relación con el Estado
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
     }
 }

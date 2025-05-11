@@ -6,8 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Salon extends Model
 {
-    protected $fillable = ['nombre','numeropiso','capacidadmaxima','descripcion','precio','estado_id','piso_id'];
-    public function reservas(){
-        return $this->hasMany(Reserva::class);
+    protected $fillable = [
+        'piso_id',
+        'estado_id',
+        'nombre',
+        'numeropiso',
+        'capacidadmaxima',
+        'descripcion',
+        'precio'
+    ];
+
+    public function piso()
+    {
+        return $this->belongsTo(Piso::class);
+    }
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
     }
 }

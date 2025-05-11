@@ -6,8 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Habitacion extends Model
 {
-    protected $fillable = ['numerohabitacion','capacidadmaxima','descripcion','numeropiso','precio','fechaagendada','estado_id','piso_id'];
-    public function reserva(){
-        return $this->belongsTo(Reserva::class);
+
+    protected $fillable = [
+        'piso_id',
+        'estado_id',
+        'numerohabitacion',
+        'capacidadmaxima',
+        'descripcion',
+        'numeropiso',
+        'precio',
+        'fechaagenda'
+    ];
+
+    public function piso()
+    {
+        return $this->belongsTo(Piso::class);
+    }
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
     }
 }
+

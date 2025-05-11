@@ -6,8 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurante extends Model
 {
-    protected $fillable = ['nombre','numerototalmesas','numerototalsillas','pisos_id'];
-    public function mesas(){
-        return $this->hasMany(Mesa::class);
+
+    protected $fillable = [
+        'piso_id', 'estado_id', 'empleado_id', 'nombre', 'numerototalmesas', 'numerototalsillas'
+    ];
+
+    // Relación con Piso
+    public function piso()
+    {
+        return $this->belongsTo(Piso::class);
+    }
+
+    // Relación con Estado
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
+    }
+
+    // Relación con Empleado
+    public function empleado()
+    {
+        return $this->belongsTo(Empleado::class);
     }
 }
