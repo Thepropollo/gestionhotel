@@ -7,7 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Servicio extends Model
 {
     protected $fillable = ['nombre','descripcion'];
-    public function reservas(){
-        return $this->hasMany(Reserva::class);
-    }
+
 }

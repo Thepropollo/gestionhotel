@@ -6,5 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Factura extends Model
 {
-    protected $fillable = ['total','detalle','hotel_id','reserva_id','estado_id','cliente_id'];
+    protected $fillable = [
+        'reserva_id',
+        'hotel_id',
+        'cliente_id',
+        'estado_id',
+        'detalle',
+        'total',
+    ];
+
+    // Relaciones (opcional)
+    public function reserva() {
+        return $this->belongsTo(Reserva::class);
+    }
+
+    public function hotel() {
+        return $this->belongsTo(Hotel::class);
+    }
+
+    public function cliente() {
+        return $this->belongsTo(Cliente::class);
+    }
+
+    public function estado() {
+        return $this->belongsTo(Estado::class);
+    }
 }
