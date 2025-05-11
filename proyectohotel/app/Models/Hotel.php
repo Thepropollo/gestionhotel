@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Hotel extends Model
 {
-     protected $fillable = ['nombre' , 'ciudad', 'direccion', 'telefono', 'correo', 'total_pisos' , 'plazagaraje'];
+     protected $fillable = ['nombre','ciudad','direccion','telefono','correo','totalpisos','garaje'];
        public function empleados(){
         return $this->hasMany(Empleado::class);
     }
