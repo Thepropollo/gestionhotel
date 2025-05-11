@@ -6,14 +6,29 @@ use Illuminate\Database\Eloquent\Model;
 
 class Piso extends Model
 {
-    protected $fillable = ['numeropiso','pisorestaurante','pisosalon','numerototalhabitacion','hotel_id'];
-    public function restaurante(){
+    protected $fillable = ['numeropiso', 'pisorestaurante', 'pisosalon', 'numerotoalhabitacion', 'hotel_id'];
+
+    // Relación uno a uno con Restaurante
+    public function restaurante()
+    {
         return $this->hasOne(Restaurante::class);
     }
-    public function habitaciones(){
+
+    // Relación uno a muchos con Habitaciones
+    public function habitaciones()
+    {
         return $this->hasMany(Habitacion::class);
     }
-    public function salones(){
+
+    // Relación uno a muchos con Salones
+    public function salones()
+    {
         return $this->hasMany(Salon::class);
+    }
+
+    // Relación pertenece a un Hotel
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class);
     }
 }
