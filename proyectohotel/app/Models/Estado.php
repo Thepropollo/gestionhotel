@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Estado extends Model
 {
     protected $fillable = ['nombre_estado','descripcion'];
-    public function empleado(){
+    public function empleados(){
         return $this->hasMany(Empleado::class);
     }
     public function restaurante(){
@@ -16,13 +16,13 @@ class Estado extends Model
     public function salon(){
         return $this->belongsTo(Salon::class);
     }
-    public function mesa(){
+    public function mesas(){
         return $this->hasMany(Mesa::class);
     }
-    public function habitacion(){
+    public function habitaciones(){
         return $this->hasMany(Habitacion::class);
     }
-    public function factura(){
+    public function facturas(){
         return $this->hasMany(Factura::class);
     }
 }

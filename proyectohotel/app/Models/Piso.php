@@ -10,10 +10,10 @@ class Piso extends Model
     public function restaurante(){
         return $this->hasOne(Restaurante::class);
     }
-    public function habitacion(){
+    public function habitaciones(){
         return $this->hasMany(Habitacion::class);
     }
-    public function salon(){
+    public function salones(){
         return $this->hasMany(Salon::class);
     }
 }
