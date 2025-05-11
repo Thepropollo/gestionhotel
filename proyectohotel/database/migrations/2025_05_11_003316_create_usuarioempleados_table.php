@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mesas', function (Blueprint $table) {
+        Schema::create('usuarioempleados', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('empleado_id')->constrained('empleados')->onDelete('cascade');
+            $table->string('correo')->unique();
+            $table->string('password');
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mesas');
+        Schema::dropIfExists('usuarioempleados');
     }
 };
