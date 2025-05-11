@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('rols_id')->constrained('rols')->onDelete('cascade');
             $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
             $table->string('nombre');
-            $table->string('apellidos');
+            $table->string('apellido');
             $table->string('cedula')->unique();
             $table->date('fechanacimiento');
             $table->string('tiposangre');

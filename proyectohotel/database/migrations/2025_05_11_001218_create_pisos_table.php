@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('hotel_id')->constrained('hotels')->onDelete('cascade');
             $table->integer('numeropiso');
-            $table->string('numerotoalhabitaciones');
-            $table->string('pisorestante');
+            $table->integer('numerotoalhabitacion');
+            $table->string('pisorestaurante');
             $table->string('pisosalon');
-            $table->integer('numerototalhabitaciones');
             $table->timestamps();
         });
     }

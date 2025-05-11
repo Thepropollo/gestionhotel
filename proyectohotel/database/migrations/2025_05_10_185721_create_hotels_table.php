@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('ciuddad');
             $table->string('direccion');
             $table->string('telefono');
-            $table->integer('num_habitaciones');
+            $table->integer('totalpisos');
             $table->string('correo');
             $table->string('garaje');
             $table->timestamps();
