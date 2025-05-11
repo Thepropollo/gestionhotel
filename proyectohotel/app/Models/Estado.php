@@ -14,6 +14,15 @@ class Estado extends Model
         return $this->belongsTo(Restaurante::class);
     }
     public function salon(){
-        return $this->belongsTo(Hotel::class);
+        return $this->belongsTo(Salon::class);
+    }
+    public function mesa(){
+        return $this->hasMany(Mesa::class);
+    }
+    public function habitacion(){
+        return $this->hasMany(Habitacion::class);
+    }
+    public function factura(){
+        return $this->hasMany(Factura::class);
     }
 }

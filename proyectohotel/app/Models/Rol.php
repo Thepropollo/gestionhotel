@@ -7,4 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rol extends Model
 {
     protected $fillable = ['nombre','descripcion'];
+    public function empleado(){
+        return $this->hasMany(Empleado::class);
+    }
 }
