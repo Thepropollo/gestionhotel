@@ -15,6 +15,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\AuthController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -105,3 +106,18 @@ Route::post('/facturas', [FacturaController::class, 'store']);
 Route::get('/facturas/{id}', [FacturaController::class, 'show']);
 Route::put('/facturas/{id}', [FacturaController::class, 'update']);
 Route::delete('/facturas/{id}', [FacturaController::class, 'destroy']);
+
+use Illuminate\Http\Request;
+
+Route::middleware('auth:sanctum')->get('/usuario-protegido', function (Request $request) {
+    return response()->json([
+        'mensaje' => 'Accediste a una ruta protegida',
+        'usuario' => $request->user(),
+    ]);
+});
+
+Route::post('/login', [AuthController::class, 'login']);
+
+use App\Http\Controllers\API\UsuarioController;
+
+Route::post('/usuarios', [UsuarioController::class, 'store']);
