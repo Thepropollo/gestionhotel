@@ -20,11 +20,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 // hotels api
+
 Route::get('/hotels', [HotelController::class, 'index']); // Listar todos los hoteles
 Route::post('/hotels', [HotelController::class, 'store']); // Crear un nuevo hotel
 Route::get('/hotels/{id}', [HotelController::class, 'show']); // Mostrar un hotel específico
 Route::put('/hotels/{id}', [HotelController::class, 'update']); // Actualizar un hotel específico
 Route::delete('/hotels/{id}', [HotelController::class, 'destroy']); // Eliminar un hotel específico
+
 // pisos api
 Route::get('/pisos', [PisoController::class, 'index']);
 Route::post('/pisos', [PisoController::class, 'store']);
@@ -86,7 +88,7 @@ Route::get('/clientes/{id}', [ClienteController::class, 'show']);
 Route::put('/clientes/{id}', [ClienteController::class, 'update']);
 Route::delete('/clientes/{id}', [ClienteController::class, 'destroy']);
 // servicios api
-Route::get('/servicios', [ServicioController::class, 'index']); 
+Route::get('/servicios', [ServicioController::class, 'index']);
 Route::post('/servicios', [ServicioController::class, 'store']);
 Route::get('/servicios/{id}', [ServicioController::class, 'show']);
 Route::put('/servicios/{id}', [ServicioController::class, 'update']);
