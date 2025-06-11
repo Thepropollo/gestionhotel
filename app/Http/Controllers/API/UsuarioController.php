@@ -24,4 +24,10 @@ class UsuarioController extends Controller
 
         return response()->json($usuario, 201);
     }
+    public function index()
+    {
+        return response()->json(User::with('empleado')->get(), 200);
+
+
+    }
 }

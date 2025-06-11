@@ -20,6 +20,8 @@ use App\Http\Controllers\AuthController;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+
 // hotels api
 
 Route::get('/hotels', [HotelController::class, 'index']); // Listar todos los hoteles
@@ -121,6 +123,8 @@ Route::post('/login', [AuthController::class, 'login']);
 use App\Http\Controllers\API\UsuarioController;
 
 Route::post('/usuarios', [UsuarioController::class, 'store']);
+Route::get('/usuarios', [UsuarioController::class, 'index']);
+
 
 Route::get('/dashboard', function () {
 });

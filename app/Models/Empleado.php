@@ -16,7 +16,8 @@ class Empleado extends Model
         'apellido',
         'cedula',
         'fechanacimiento',
-        'tiposangre'
+        'tiposangre',
+        'telefono',
     ];
 
     // Relación con el Hotel

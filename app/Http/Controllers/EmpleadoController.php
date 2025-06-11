@@ -29,6 +29,8 @@ class EmpleadoController extends Controller
             'cedula' => 'required|string|max:255|unique:empleados,cedula',
             'fechanacimiento' => 'required|date',
             'tiposangre' => 'required|string|max:255',
+            'correo' => 'required|email|unique:empleados,correo',
+            'telefono' => 'required',
         ]);
 
         $empleado = Empleado::create($validated);
@@ -72,6 +74,8 @@ class EmpleadoController extends Controller
             'apellido' => 'required|string|max:255',
             'cedula' => 'required|string|max:255|unique:empleados,cedula,' . $empleado->id,
             'fechanacimiento' => 'required|date',
+            'correo' => 'required|email|unique:empleados,correo',
+            'telefono' => 'required',
             'tiposangre' => 'required|string|max:255',
         ]);
 
