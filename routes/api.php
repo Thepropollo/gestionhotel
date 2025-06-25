@@ -125,6 +125,3 @@ use App\Http\Controllers\API\UsuarioController;
 Route::post('/usuarios', [UsuarioController::class, 'store']);
 Route::get('/usuarios', [UsuarioController::class, 'index']);
 
-
-Route::get('/dashboard', function () {
-});
