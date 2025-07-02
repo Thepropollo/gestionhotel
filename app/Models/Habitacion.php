@@ -31,7 +31,14 @@ class Habitacion extends Model
     
     public function estados()
     {
-        return $this->HasMany(Estado::class);
+        return $this->belongsTo(Estado::class);
     }
+
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
+    
 }
 

@@ -24,6 +24,11 @@ class User extends Authenticatable
         return $this->belongsTo(Empleado::class);
     }
 
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
     public function rol()
     {
         return $this->belongsTo(Rol::class);
@@ -33,6 +38,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Estado::class);
     }
+
+
 
     protected $hidden = [
         'password',

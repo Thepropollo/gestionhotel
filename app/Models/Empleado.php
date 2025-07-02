@@ -17,7 +17,7 @@ class Empleado extends Model
         'cedula',
         'fechanacimiento',
         'tiposangre',
-        'correo',      // <- Este nombre debe ser EXACTO al de la migración/tabla
+        'correo',
         'telefono',
     ];
 

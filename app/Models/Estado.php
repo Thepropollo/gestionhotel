@@ -9,7 +9,10 @@ class Estado extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombreestado', 'descripcion'];
+    protected $fillable = [
+    'nombreestado', 
+    'descripcion'
+];
     
     public function empleados()
     {
