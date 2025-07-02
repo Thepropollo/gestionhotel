@@ -8,14 +8,15 @@ class Habitacion extends Model
 {
 
     protected $fillable = [
-        'piso_id',
-        'estado_id',
+        
         'numerohabitacion',
         'capacidadmaxima',
         'descripcion',
         'numeropiso',
         'precio',
-        'fechaagenda'
+        'fechaagenda',
+        'piso_id',
+        'estado_id',
     ];
 
     public function piso()
@@ -23,9 +24,14 @@ class Habitacion extends Model
         return $this->belongsTo(Piso::class);
     }
 
-    public function estado()
+    public function hotels()
     {
-        return $this->belongsTo(Estado::class);
+        return $this->belongsTo(Hotel::class);
+    }
+    
+    public function estados()
+    {
+        return $this->HasMany(Estado::class);
     }
 }
 

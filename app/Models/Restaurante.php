@@ -8,7 +8,12 @@ class Restaurante extends Model
 {
 
     protected $fillable = [
-        'piso_id', 'estado_id', 'empleado_id', 'nombre', 'numerototalmesas', 'numerototalsillas'
+        'piso_id', 
+        'estado_id', 
+        'empleado_id', 
+        'nombre', 
+        'numerototalmesas', 
+        'numerototalsillas'
     ];
 
     // Relación con Piso
@@ -27,5 +32,10 @@ class Restaurante extends Model
     public function empleado()
     {
         return $this->belongsTo(Empleado::class);
+    }
+
+    public function mesas()
+    {
+        return $this->hasMany(Mesa::class);
     }
 }

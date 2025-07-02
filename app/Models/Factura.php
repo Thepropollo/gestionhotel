@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Factura extends Model
 {
     protected $fillable = [
+        'detalle',
+        'total',
+        'metodo_pago',
+        'fecha_emision',
+        'fecha_vencimiento',
+        'numero_factura',
+        'codigo_autorizacion',
+        'precio_unitario',
+        'cantidad',
+        'precio_total',
         'reserva_id',
         'hotel_id',
         'cliente_id',
         'estado_id',
-        'detalle',
-        'total',
     ];
 
-    // Relaciones (opcional)
     public function reserva() {
         return $this->belongsTo(Reserva::class);
     }
@@ -29,6 +36,6 @@ class Factura extends Model
     }
 
     public function estado() {
-        return $this->belongsTo(Estado::class);
+        return $this->HasMany(Estado::class);
     }
 }

@@ -78,12 +78,6 @@ Route::post('/habitaciones', [HabitacionController::class, 'store']);
 Route::get('/habitaciones/{id}', [HabitacionController::class, 'show']);
 Route::put('/habitaciones/{id}', [HabitacionController::class, 'update']);
 Route::delete('/habitaciones/{id}', [HabitacionController::class, 'destroy']);
-// usuarioempleado api
-Route::get('/usuarioempleados', [UsuarioempleadoController::class, 'index']);
-Route::post('/usuarioempleados', [UsuarioempleadoController::class, 'store']);
-Route::get('/usuarioempleados/{id}', [UsuarioempleadoController::class, 'show']);
-Route::put('/usuarioempleados/{id}', [UsuarioempleadoController::class, 'update']);
-Route::delete('/usuarioempleados/{id}', [UsuarioempleadoController::class, 'destroy']);
 // clientes api
 Route::get('/clientes', [ClienteController::class, 'index']);
 Route::post('/clientes', [ClienteController::class, 'store']);

@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('habitacions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('piso_id')->constrained('pisos')->onDelete('cascade');
-            $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
             $table->integer('numerohabitacion');
             $table->integer('capacidadmaxima');
             $table->string('descripcion');
-            $table->integer('numeropiso');
             $table->float('precio');
             $table->date('fechaagenda');
+            $table->foreignId('piso_id')->constrained('pisos')->onDelete('cascade');
+            $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
             $table->timestamps();
         });
     }

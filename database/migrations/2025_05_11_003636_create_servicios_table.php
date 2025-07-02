@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Schema;
                 $table->id();
                 $table->string('nombre');
                 $table->string('descripcion');
+                $table->float('precio');
+                $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
                 $table->timestamps();
             });
         }

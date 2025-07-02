@@ -20,8 +20,12 @@ class Mesa extends Model
         return $this->belongsTo(Restaurante::class);
     }
 
-    public function estado() {
-        return $this->belongsTo(Estado::class);
+    public function reservas() {
+        return $this->hasMany(Reserva::class);
+    }
+
+    public function estados() {
+        return $this->HasMany(Estado::class);
     }
 }
 

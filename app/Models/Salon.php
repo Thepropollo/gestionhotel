@@ -21,7 +21,17 @@ class Salon extends Model
         return $this->belongsTo(Piso::class);
     }
 
-    public function estado()
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class);
+    }
+
+    public function hotel()
+    {
+        return $this->belongsTo(Hotel::class);
+    }
+
+    public function estados()
     {
         return $this->belongsTo(Estado::class);
     }

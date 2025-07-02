@@ -6,11 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
-    protected $fillable = ['cedula','nombre','apellido','direccion','telefono'];
+    protected $fillable = [
+        'nombre',
+        'cedula',
+        'apellido',
+        'direccion',
+        'telefono',
+        'estado_id'
+    ];
+
+    
     public function reservas(){
         return $this->hasMany(Reserva::class);
     }
-    public function facturas(){
-        return $this->hasMany(Factura::class);
+
+    public function estado(){
+        return $this->belongsTo(Estado::class);
     }
 }

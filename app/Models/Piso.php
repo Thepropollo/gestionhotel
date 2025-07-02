@@ -8,7 +8,6 @@ class Piso extends Model
 {
     protected $fillable = ['numeropiso', 'pisorestaurante', 'pisosalon', 'numerotoalhabitacion', 'hotel_id'];
 
-    // Relación uno a uno con Restaurante
     public function restaurante()
     {
         return $this->hasOne(Restaurante::class);

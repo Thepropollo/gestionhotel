@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombreestado');
             $table->string('descripcion');
+            $table->string('tipo'); // la usaremos para cagar los estados en las difenentes tablas
             $table->timestamps();
         });
     }

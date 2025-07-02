@@ -14,4 +14,9 @@ class Rol extends Model
     {
         return $this->hasMany(Empleado::class);
     }
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
+    }
 }

@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->integer('totalpisos');
             $table->string('correo');
             $table->string('garaje');
+            $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -13,15 +13,16 @@ return new class extends Migration
     {
         Schema::create('reservas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
-            $table->foreignId('mesa_id')->constrained('mesas')->onDelete('cascade');
-            $table->foreignId('servicio_id')->constrained('servicios')->onDelete('cascade');
-            $table->foreignId('salon_id')->constrained('salons')->onDelete('cascade');
-            $table->foreignId('habitacion_id')->constrained('habitacions')->onDelete('cascade');
-            $table->foreignId('usuarioempleado_id')->constrained('usuarioempleados')->onDelete('cascade');
             $table->date('fechainicio');
             $table->date('fechafin');
-            $table->float('precio');
+            $table->foreignId('cliente_id')->constrained('clientes')->onDelete('cascade');
+            $table->foreignId('servicio_id')->nullable()->constrained('servicios')->onDelete('set null');
+            $table->foreignId('mesa_id')->nullable()->constrained('mesas')->onDelete('set null');
+            $table->foreignId('salon_id')->nullable()->constrained('salons')->onDelete('set null');
+            $table->foreignId('habitacion_id')->nullable()->constrained('habitacions')->onDelete('set null');
+            $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
+            $table->json('objetos')->nullable();
             $table->timestamps();
         });
     }

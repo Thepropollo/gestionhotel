@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('piso_id')->constrained('pisos')->onDelete('cascade');
             $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
-            $table->foreignId('empleado_id')->constrained('empleados')->onDelete('cascade');
+            $table->foreignId('users_id')->constrained('users')->onDelete('cascade');
             $table->string('nombre');
             $table->integer('numerototalmesas');
             $table->integer('numerototalsillas');

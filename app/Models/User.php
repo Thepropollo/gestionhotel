@@ -24,8 +24,20 @@ class User extends Authenticatable
         return $this->belongsTo(Empleado::class);
     }
 
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class);
+    }
+
+    public function estado()
+    {
+        return $this->belongsTo(Estado::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
+
+
 }

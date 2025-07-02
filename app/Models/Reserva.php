@@ -6,42 +6,52 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reserva extends Model
 {
+    // Campos asignables masivamente
     protected $fillable = [
-        'cliente_id',
-        'mesa_id',
-        'servicio_id',
-        'salon_id',
-        'habitacion_id',
-        'usuarioempleado_id',
         'fechainicio',
         'fechafin',
-        'precio',
+        'cliente_id',
+        'servicio_id',
+        'mesa_id',
+        'salon_id',
+        'habitacion_id',
+        'user_id',
+        'estado_id',
+        'objetos',
+
     ];
 
-    // Relaciones (opcional)
-    public function cliente() {
+    public function cliente()
+    {
         return $this->belongsTo(Cliente::class);
     }
 
-    public function mesa() {
-        return $this->belongsTo(Mesa::class);
-    }
-
-    public function servicio() {
-        return $this->belongsTo(Servicio::class);
-    }
-
-    public function salon() {
-        return $this->belongsTo(Salon::class);
-    }
-
-    public function habitacion() {
-        return $this->belongsTo(Habitacion::class);
-    }
-
-    public function usuarioempleado()
+    public function mesa()
     {
-        return $this->belongsTo(UsuarioEmpleado::class);
+        return $this->hasMany(Mesa::class);
+    }
+
+    public function servicio()
+    {
+        return $this->hasMany(Servicio::class);
+    }
+
+    public function salon()
+    {
+        return $this->hasMany(Salon::class);
+    }
+
+    public function habitacion()
+    {
+        return $this->hasMany(Habitacion::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function estado() {
+        return $this->belongsTo(Estado::class);
     }
 }
-

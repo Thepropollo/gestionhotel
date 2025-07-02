@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('mesas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('restaurante_id')->constrained('restaurantes')->onDelete('cascade');
-            $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
-            $table->string('numeromesa');
-            $table->string('ubication');
+            
+            $table->string('ubicacion');
             $table->integer('capacidad');
             $table->string('descripcion');
+            $table->integer('numeromesa')->unique();
+            $table->foreignId('restaurante_id')->constrained('restaurantes')->onDelete('cascade');
+            $table->foreignId('estado_id')->constrained('estados')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
